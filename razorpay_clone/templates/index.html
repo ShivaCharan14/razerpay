@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Create Payment - Razorpay Clone{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 class="text-center mb-lg">Create New Payment</h1>
+    
+    <form action="/create_payment" method="POST">
+        <div class="form-group">
+            <label for="amount" class="form-label">Amount (INR)</label>
+            <input type="number" id="amount" name="amount" class="form-control" 
+                   min="1" step="0.01" placeholder="100.00" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" id="description" name="description" class="form-control" 
+                   placeholder="Payment for services">
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block">
+            Create Payment Link
+        </button>
+    </form>
+</div>
+
+<div class="card">
+    <h2 class="text-center mb-md">How it works</h2>
+    <ol class="steps">
+        <li>Enter payment amount and description</li>
+        <li>Get a secure payment link</li>
+        <li>Customer completes the payment</li>
+        <li>Get instant payment confirmation</li>
+    </ol>
+</div>
+{% endblock %}

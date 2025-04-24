@@ -1,0 +1,5 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="8" fill="#2b6cb0"/>
+  <path d="M25 12L35 28M45 12L35 28M35 28L55 12" stroke="white" stroke-width="3"/>
+  <text x="70" y="25" font-family="Arial" font-size="16" fill="white">RazorPay Clone</text>
+</svg>

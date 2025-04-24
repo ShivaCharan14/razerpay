@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Payment - Razorpay Clone{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="payment-status">
+        <div class="status-icon pending">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+        </div>
+        <h2 class="status-title">Payment Pending</h2>
+        <p class="status-description">Complete your payment of ₹{{ "%.2f"|format(payment.amount) }}</p>
+    </div>
+
+    <div class="payment-details">
+        <div class="detail-row">
+            <span class="detail-label">Payment ID</span>
+            <span class="detail-value">{{ payment.id }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Amount</span>
+            <span class="detail-value">₹{{ "%.2f"|format(payment.amount) }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="detail-value">{{ payment.description }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Created</span>
+            <span class="detail-value">{{ payment.created_at.strftime('%d %b %Y, %I:%M %p') }}</span>
+        </div>
+    </div>
+
+    <form action="/complete_payment/{{ payment.id }}" method="POST" class="mt-lg">
+        <button type="submit" class="btn btn-primary btn-block">
+            Complete Payment Now
+        </button>
+    </form>
+</div>
+
+<div class="card no-print">
+    <h3 class="mb-md">Payment Instructions</h3>
+    <p>This is a demo payment system. Click "Complete Payment" to simulate:</p>
+    <ul class="steps">
+        <li>Successful payment (70% chance)</li>
+        <li>Failed payment (30% chance)</li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/assets/js/payment.js"></script>
+{% endblock %}

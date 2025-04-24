@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Razorpay Clone{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="/" class="logo">
+                <img src="/static/assets/images/logo.svg" alt="Razorpay Clone" class="logo-img">
+                <span>Razorpay Clone</span>
+            </a>
+            <nav class="nav no-print">
+                <a href="/" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Transactions</a>
+            </nav>
+        </header>
+
+        <main class="main animate-fade">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer no-print">
+            <p>© 2023 Razorpay Clone. For demonstration purposes only.</p>
+        </footer>
+    </div>
+
+    {% block extra_js %}
+    <script src="/static/assets/js/main.js"></script>
+    {% endblock %}
+</body>
+</html>
